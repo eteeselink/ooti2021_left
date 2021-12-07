@@ -1,4 +1,5 @@
-class Question{
-    string title;
-    List<string> answers;
+public class Question{
+    public string title;
+    public List<string> answers;
+    public String answer;
 }
