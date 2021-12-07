@@ -2,8 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Kiosk.App;
 
@@ -20,6 +19,14 @@ class OptionResultModel {
 class ResultsModel {
     private string title;
     private List<OptionResultModel> options;
+
+    public string getTitle() {
+        return title;
+    }
+
+    public List<OptionResultModel> GetOptions() {
+        return options;
+    }
 
     public ResultsModel(string title) {
         this.title = title;
@@ -41,33 +48,45 @@ class Results {
         List<Question> questions = new List<Question>();
         List<string> options = new List<string>(new string[] { "1", "2", "3" });
         Question question1 = new Question();
-        question1.title = "question1";
-        question1.answers = options;
+        question1.setTitle("question1");
+        foreach (string ans in options) {
+            question1.addAnswers(ans);
+        }
         question1.answer = "1";
         
         Question question2 = new Question();
-        question2.title = "question1";
-        question2.answers = options;
+        question2.setTitle("question1");
+        foreach (string ans in options) {
+            question2.addAnswers(ans);
+        }
         question2.answer = "1";
         
         Question question3 = new Question();
-        question3.title = "question1";
-        question3.answers = options;
+        question3.setTitle("question1");
+        foreach (string ans in options) {
+            question3.addAnswers(ans);
+        }
         question3.answer = "2";
 
         Question question4 = new Question();
-        question4.title = "question1";
-        question4.answers = options;
+        question4.setTitle("question1");
+        foreach (string ans in options) {
+            question4.addAnswers(ans);
+        }
         question4.answer = "2";
 
         Question question5 = new Question();
-        question5.title = "question1";
-        question5.answers = options;
+        question5.setTitle("question1");
+        foreach (string ans in options) {
+            question5.addAnswers(ans);
+        }
         question5.answer = "2";
 
         Question question6 = new Question();
-        question6.title = "question1";
-        question6.answers = options;
+        question6.setTitle("question1");
+        foreach (string ans in options) {
+            question6.addAnswers(ans);
+        }
         question6.answer = "3";
 
         questions.Add(question1);
@@ -84,18 +103,18 @@ class Results {
     private List<ResultsModel> tranformQuestionsToResults(List<Question> questions) {
         Dictionary<string, Dictionary<string, int>> resultsDict = new Dictionary<string, Dictionary<string, int>>();
         foreach (Question question in questions) {
-            string key = question.title;
+            string key = question.getTitle();
             if (!resultsDict.ContainsKey(key)) {
                 resultsDict.Add(key, new Dictionary<string, int>());
                 resultsDict[key].Add(question.answer, 1);
-                Console.WriteLine(key + " " + question.answer + " " + 1);
+                // Console.WriteLine(key + " " + question.answer + " " + 1);
             }
             else if (!resultsDict[key].ContainsKey(question.answer)) {
                 resultsDict[key].Add(question.answer, 1);
-                Console.WriteLine(key + " " + question.answer + " " + 1);
+                // Console.WriteLine(key + " " + question.answer + " " + 1);
             } else {
                 resultsDict[key][question.answer]++;
-                Console.WriteLine(key + " " + question.answer + " " + resultsDict[key][question.answer]);
+                // Console.WriteLine(key + " " + question.answer + " " + resultsDict[key][question.answer]);
             }
         }
 
@@ -115,18 +134,20 @@ class Results {
 
     public void Run() {
         Console.WriteLine("Results");
-        //write();
-        //display();
+        write();
+        display();
     }
 
     public void write() {
         Console.WriteLine("Save results to file");
-        string json = JsonSerializer.Serialize(results);
+        string json = JsonConvert.SerializeObject(results);
         File.WriteAllText(this.file_path, json);
     }
 
-    public List<ResultsModel> display() {
+    public void display() {
         Console.WriteLine("Display results to console");
-        return results;
+        Console.WriteLine(results.Count);
+        string json = JsonConvert.SerializeObject(results);
+        Console.Write(json);
     }
 }

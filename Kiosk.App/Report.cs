@@ -25,7 +25,7 @@ public class Report {
         // create file
         using (FileStream file = File.Create(html_file))
         {
-            byte[] info = new UTF8Encoding(true).GetBytes("<html><h1>Results</h1><br\><h2> " + output + "</h2></html>");
+            byte[] info = new UTF8Encoding(true).GetBytes("<html><h1>Results</h1><brh2> " + output + "</h2></html>");
                 // Add some information to the file.
             file.Write(info, 0, info.Length);
         }
