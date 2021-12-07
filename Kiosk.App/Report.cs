@@ -8,12 +8,12 @@ namespace Kiosk.App;
 public class Report {
 
     // work in progress
-    private string file_path = "/workspace/ooti2021_left/Kiosk.App/result.json";
+    private string file_path = "result.json";
+    private stirn
     public Report() {
     }
     public void parseFile() {
         String output = File.ReadAllText(this.file_path);
-        Console.WriteLine(output);
     }
 
     // work in progress
