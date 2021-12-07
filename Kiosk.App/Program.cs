@@ -25,10 +25,10 @@ var rootCommand = new RootCommand
 // just a dummy option to show how options work
 rootCommand.AddOption(new Option<bool>("--say-hi", description: "Say hi"));
 
-var read = new Command("read", "Read the survey file and display diagnostic info")
-{
-    Handler = CommandHandler.Create(() => new Read().Run())
-};
+//var read = new Command("read", "Read the survey file and display diagnostic info")
+//{
+    //Handler = CommandHandler.Create(() => new Read().Run())
+//};
 
 var ask = new Command("ask", "Ask a single voter the questionnaire")
 {
@@ -64,7 +64,7 @@ var report = new Command("report", "Generate report of the results")
 // then call it like
 //   dotnet run report --extra-pretty --output myfile.html
 
-rootCommand.AddCommand(read);
+//rootCommand.AddCommand(read);
 rootCommand.AddCommand(ask);
 rootCommand.AddCommand(survey);
 //rootCommand.AddCommand(results);

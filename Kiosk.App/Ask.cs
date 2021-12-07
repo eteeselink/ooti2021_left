@@ -10,17 +10,11 @@ class Ask {
     public void Run(){
         Question q1 = new Question();
         q1.setTitle("what is your name?");
-<<<<<<< HEAD
-
-        Question q2 = new Question();
-        q2.setTitle("what do you want to choose: Pissa, Lahmacun, Bitterball");
-=======
         q1.answers = new List<string>();
 
         Question q2 = new Question();
         q2.setTitle("what do you want to choose: Pissa, Lahmacun, Bitterball");
         q2.answers = new List<string>();
->>>>>>> eba01159eee5c5b6c2b3875fdd04c052078a9a22
         
 
         List<Question> lists = new List<Question>();
@@ -49,7 +43,6 @@ class Ask {
 
                     }
                 return lists;
->>>>>>> eba01159eee5c5b6c2b3875fdd04c052078a9a22
         }
         else{
             return null;

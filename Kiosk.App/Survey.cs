@@ -5,29 +5,34 @@ using System.Linq;
 
 namespace Kiosk.App;
 
-public class Survey {
+public class Survey
+{
 
-   
+
     private string _questionFile;
     private string _resultFile;
 
-    public Survey(){
+    public Survey()
+    {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
         _questionFile = rootDir + "questions.txt";
         _resultFile = rootDir + "Results.json";
     }
-    public void Run() 
+    public void Run()
     {
         var read = new Read(_questionFile);
         var questions = read.getAlllQuestions();
-        if(questions != null)
+        if (questions != null)
         {
             var ask = new Ask();
-            questions = ask.ask(questions);
+            questions = ask.GetAnswers(questions);
 
-            new Results(questions, _resultFile);
+            //new Results(questions, _resultFile);
             new Report(_resultFile);
         }
-        Console.WriteLine("questions not found");  
+        else
+        {
+            Console.WriteLine("questions not found");
+        }
     }
 }
