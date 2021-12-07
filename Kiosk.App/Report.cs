@@ -7,10 +7,16 @@ namespace Kiosk.App;
 
 public class Report {
 
+    // work in progress
+    private string file_path = "/workspace/ooti2021_left/Kiosk.App/result.json";
+    public Report() {
+    }
     public void parseFile() {
-        Console.WriteLine("Parsing file ... ");
+        String output = File.ReadAllText(this.file_path);
+        Console.WriteLine(output);
     }
 
+    // work in progress
     public void generateHTML() {
         Console.WriteLine("Generating html");
     }
