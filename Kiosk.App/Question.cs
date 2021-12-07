@@ -1,7 +1,6 @@
 public class Question{
     private string title;
     public List<string> answers;
-<<<<<<< HEAD
     public String answer;
 
     public void setTitle(string title){
@@ -20,6 +19,5 @@ public class Question{
     public string getTitle(){
         return title;
     }
-    public string answer;
 
 }

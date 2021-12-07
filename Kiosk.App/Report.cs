@@ -31,8 +31,10 @@ public class Report {
         }
     }
     public void Run() {
+        Console.WriteLine("Printing file ...");
         parseFile();
+        Console.WriteLine("Generating report ...");
         generateHTML();
-        Console.WriteLine("Report");
+        Console.WriteLine("Report generated ...");
     }
 }
