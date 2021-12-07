@@ -7,10 +7,12 @@ namespace Kiosk.App;
 
 class Read {
 
-    List<Question> allQuestions;
+    private List<Question> allQuestions;
     public void Run() {
+        allQuestions = new List<Question>();
         Console.WriteLine("Questions file contains:");
-        Console.WriteLine(ReadQuestionsFile());
+        ReadQuestionsFile();
+        printAllQuestions();
     }
 
     public List<Question> getAlllQuestions(){
@@ -19,15 +21,48 @@ class Read {
 
     // this is just an example of how to read a file,
     // modify/delete as you see fit.
-    public string ReadQuestionsFile() {
+    public void ReadQuestionsFile() {
         // we run in <root>/Kiosk.App/bin/Debug/net6.0, so gotta go up 4 levels
         var rootDir = AppContext.BaseDirectory + "/../../../../";
 
-        return File.ReadAllText(rootDir + "questions.txt");
+        string[] lines = File.ReadAllLines(rootDir + "questions.txt");
+
+        int index = 0;
+
+        while(index < lines.Length){
+            
+            string line = lines[index];
+            if(String.IsNullOrEmpty(line)){
+                index++;
+                continue;
+            }
+
+             Console.WriteLine(line);
+            if(line.Contains("?")){
+                Question newQuestion = new Question();
+                newQuestion.setTitle(line);
+                index++;
+                while(index < lines.Length && lines[index].Contains("-") ){
+                    newQuestion.addAnswers(lines[index].Substring(1));
+                    index++;
+                }
+                allQuestions.Add(newQuestion);
+            }
+        }
     }
 
-    public string ParseQuestions(string text){
-        return null;
+    public void printAllQuestions(){
+        int questionNumber = 0;
+        foreach (Question question in allQuestions){
+            questionNumber++;
+            Console.WriteLine(questionNumber + "- " + question.getTitle());
+            int answserCount = 0;
+            foreach (string answer in question.getAllAnswers()){
+                Console.WriteLine(answserCount + ") "+ answer);
+                answserCount++;
+            }
+
+        }
     }
 
     public List<Question> getQuestions(){

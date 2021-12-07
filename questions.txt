@@ -1,19 +1,16 @@
 Do you like pizza?
 - Yes
 - No
-
 What kind of pizza to get?
 - Margherita Pizza
 - Pepperoni Pizza
 - Chicken Pizza
 - Lahmacun
 - Bitterballen
-
 How much did you like your pizza?(in order of numbers)
 - 1 
 - 2
 - 3
 - 4
 - 5
-
 Do you have any suggestion?
