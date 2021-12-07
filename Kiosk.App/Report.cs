@@ -15,7 +15,7 @@ public class Report {
 
     private string html_file = "./report.html";
     private string output = "";
-    private Report(string file_path) {
+    public Report(string file_path) {
         this.file_path = file_path;
     }
     public void parseFile() {
@@ -27,7 +27,7 @@ public class Report {
         // create file
         using (FileStream file = File.Create(html_file))
         {
-            byte[] info = new UTF8Encoding(true).GetBytes("This is some text in the file.");
+            byte[] info = new UTF8Encoding(true).GetBytes("<");
                 // Add some information to the file.
             file.Write(info, 0, info.Length);
         }
