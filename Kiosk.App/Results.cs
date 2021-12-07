@@ -9,9 +9,9 @@ namespace Kiosk.App;
 
 class OptionResultModel {
     private string name;
-    private string value;
+    private int value;
 
-    public OptionResultModel(string name, string value) {
+    public OptionResultModel(string name, int value) {
         this.name = name;
         this.value = value;
     }
@@ -26,23 +26,31 @@ class ResultsModel {
         options = new List<OptionResultModel>();
     }
 
-    public void addOptionResult(string name, string value) {
+    public void addOptionResult(string name, int value) {
         OptionResultModel optionResult = new OptionResultModel(name, value);
         this.options.Add(optionResult);
     }
 }
 
 class Results {
-    private string file_path;
-    public Results(string result_file_path) {
-        file_path = result_file_path;
-    }
+    private string file_path = "result.json";
     public void Run() {
         Console.WriteLine("Results");
-        
+        List<ResultsModel> results = new List<ResultsModel>();
+        ResultsModel resultItem1 = new ResultsModel("test question");
+        resultItem1.addOptionResult("option1", 2);
+        resultItem1.addOptionResult("option2", 3);
+
+        ResultsModel resultItem2 = new ResultsModel("test question1");
+        resultItem2.addOptionResult("option1", 4);
+        resultItem2.addOptionResult("option2", 5);
+
+        results.Add(resultItem1);
+        results.Add(resultItem2);
+        write(results);
+        display(results);
     }
 
-    // WIP: work in progress
     public void write(List<ResultsModel> results) {
         string json = JsonSerializer.Serialize(results);
         File.WriteAllText(this.file_path, json);
