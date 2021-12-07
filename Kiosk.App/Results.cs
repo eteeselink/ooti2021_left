@@ -35,7 +35,6 @@ class ResultsModel {
 class Results {
     private string file_path = "result.json";
     private List<ResultsModel> results;
-
     public Results(List<Question> questions, string file_path) {
         this.file_path = file_path;
         Dictionary<string, string> resultsDict = new Dictionary<string, string>();
@@ -59,8 +58,8 @@ class Results {
     }
     public void Run() {
         Console.WriteLine("Results");
-        write();
-        display();
+        //write();
+        //display();
     }
 
     public void write() {
