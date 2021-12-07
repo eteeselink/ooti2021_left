@@ -14,6 +14,14 @@ class OptionResultModel {
         this.name = name;
         this.value = value;
     }
+
+    public string getName() {
+        return name;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
 
 class ResultsModel {
@@ -147,6 +155,12 @@ class Results {
     public void display() {
         Console.WriteLine("Display results to console");
         Console.WriteLine(results.Count);
+        foreach (ResultsModel result in results) {
+            Console.WriteLine(result.getTitle());
+            foreach (OptionResultModel option in result.GetOptions()) {
+                Console.WriteLine("Option " + option.getName() + ":" + option.getValue());
+            }
+        }
         string json = JsonConvert.SerializeObject(results);
         Console.Write(json);
     }
