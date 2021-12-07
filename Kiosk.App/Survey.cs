@@ -16,7 +16,7 @@ public class Survey
     {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
         _questionFile = rootDir + "questions.txt";
-        _resultFile = rootDir + "Results.json";
+        _resultFile = "result.json";
     }
     public void Run()
     {
@@ -27,7 +27,7 @@ public class Survey
             var ask = new Ask();
             questions = ask.GetAnswers(questions);
             Console.WriteLine(questions);
-            Results results = new Results(questions);
+            Results results = new Results(questions, _resultFile);
             results.write();
             results.display();
 

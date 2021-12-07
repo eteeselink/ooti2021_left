@@ -61,11 +61,11 @@ class ResultsModel {
 }
 
 class Results {
-    private string file_path = "result.json";
+    private string file_path;
     private List<ResultsModel> results;
 
-    public Results(List<Question> questions) {
-        // this.file_path = file_path;
+    public Results(List<Question> questions, string file_path) {
+        this.file_path = file_path;
         results = tranformQuestionsToResults(questions);
     }
 
@@ -76,14 +76,11 @@ class Results {
             if (!resultsDict.ContainsKey(key)) {
                 resultsDict.Add(key, new Dictionary<string, int>());
                 resultsDict[key].Add(question.answer, 1);
-                // Console.WriteLine(key + " " + question.answer + " " + 1);
             }
             else if (!resultsDict[key].ContainsKey(question.answer)) {
                 resultsDict[key].Add(question.answer, 1);
-                // Console.WriteLine(key + " " + question.answer + " " + 1);
             } else {
                 resultsDict[key][question.answer]++;
-                // Console.WriteLine(key + " " + question.answer + " " + resultsDict[key][question.answer]);
             }
         }
 
