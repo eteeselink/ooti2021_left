@@ -13,6 +13,10 @@ class Read {
         Console.WriteLine(ReadQuestionsFile());
     }
 
+    public List<Question> getAlllQuestions(){
+        return allQuestions;
+    }
+
     // this is just an example of how to read a file,
     // modify/delete as you see fit.
     public string ReadQuestionsFile() {
@@ -20,6 +24,10 @@ class Read {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
 
         return File.ReadAllText(rootDir + "questions.txt");
+    }
+
+    public string ParseQuestions(string text){
+        return null;
     }
 
     public List<Question> getQuestions(){
