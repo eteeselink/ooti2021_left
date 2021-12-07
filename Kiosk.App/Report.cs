@@ -16,9 +16,9 @@ public class Report {
 
     // This is the constructor that has been commented out
     // Use this
-    //public Report(string file_path) {
-    //    this.file_path = file_path;
-    //}
+    public Report(string file_path) {
+        this.file_path = file_path;
+    }
 
     public void parseFile() {
         output = File.ReadAllText(file_path);
