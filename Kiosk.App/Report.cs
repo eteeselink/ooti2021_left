@@ -14,11 +14,12 @@ public class Report {
     private string file_path = "result.json";
 
     private string html_file = "./report.html";
-    private string output;
-    public Report() {
+    private string output = "";
+    private Report(string file_path) {
+        this.file_path = file_path;
     }
     public void parseFile() {
-        output = File.ReadAllText(this.file_path);
+        output = File.ReadAllText(file_path);
     }
 
     // work in progress
