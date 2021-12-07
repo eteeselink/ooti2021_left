@@ -27,7 +27,7 @@ class ResultsModel {
     }
 
     public void addOptionResult(string name, string value) {
-        OptionResultModel optionResult = new OptionResultModel(name=name, value=value);
+        OptionResultModel optionResult = new OptionResultModel(name, value);
         this.options.Add(optionResult);
     }
 }
@@ -39,10 +39,16 @@ class Results {
     }
     public void Run() {
         Console.WriteLine("Results");
+        
     }
 
-    public void write() {
-        string json = JsonSerializer.Serialize(_data);
+    // WIP: work in progress
+    public void write(List<ResultsModel> results) {
+        string json = JsonSerializer.Serialize(results);
         File.WriteAllText(this.file_path, json);
+    }
+
+    public List<ResultsModel> display(List<ResultsModel> results) {
+        return results;
     }
 }
