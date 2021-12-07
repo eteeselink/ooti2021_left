@@ -47,7 +47,5 @@ class Ask {
         else{
             return null;
         }
-        
-        
     }
 }

@@ -26,12 +26,14 @@ public class Survey
         {
             var ask = new Ask();
             questions = ask.GetAnswers(questions);
-            Console.WriteLine(questions);
             Results results = new Results(questions, _resultFile);
             results.write();
             results.display();
 
-            new Report(_resultFile);
+            Report report = new Report(_resultFile);
+            report.parseFile();
+            report.generateHTML();
+
         }
         else
         {
