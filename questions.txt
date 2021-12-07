@@ -6,7 +6,6 @@ What kind of pizza to get?
 - Pepperoni Pizza
 - Chicken Pizza
 - Lahmacun
-- Bitterballen
 How much did you like your pizza?(in order of numbers)
 - 1 
 - 2
