@@ -34,8 +34,16 @@ class ResultsModel {
 
 class Results {
     private string file_path = "result.json";
-    public void Run() {
-        Console.WriteLine("Results");
+    private List<ResultsModel> results;
+
+    public Results(List<Question> questions, string file_path) {
+        this.file_path = file_path;
+        Dictionary<string, string> resultsDict = new Dictionary<string, string>();
+        results = tranformQuestionsToResults(questions);
+    }
+
+    public List<ResultsModel> tranformQuestionsToResults(List<Question> questions) {
+        // Dummy initiation of results, rewrite to implementation
         List<ResultsModel> results = new List<ResultsModel>();
         ResultsModel resultItem1 = new ResultsModel("test question");
         resultItem1.addOptionResult("option1", 2);
@@ -47,16 +55,22 @@ class Results {
 
         results.Add(resultItem1);
         results.Add(resultItem2);
-        write(results);
-        display(results);
+        return results;
+    }
+    public void Run() {
+        Console.WriteLine("Results");
+        write();
+        display();
     }
 
-    public void write(List<ResultsModel> results) {
+    public void write() {
+        Console.WriteLine("Save results to file");
         string json = JsonSerializer.Serialize(results);
         File.WriteAllText(this.file_path, json);
     }
 
-    public List<ResultsModel> display(List<ResultsModel> results) {
+    public List<ResultsModel> display() {
+        Console.WriteLine("Display results to console");
         return results;
     }
 }
