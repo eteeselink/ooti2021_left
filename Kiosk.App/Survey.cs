@@ -26,8 +26,11 @@ public class Survey
         {
             var ask = new Ask();
             questions = ask.GetAnswers(questions);
+            Console.WriteLine(questions);
+            Results results = new Results(questions);
+            results.write();
+            results.display();
 
-            //new Results(questions, _resultFile);
             new Report(_resultFile);
         }
         else

@@ -40,10 +40,10 @@ var survey = new Command("survey", "Ask all voters the questionnaire")
     Handler = CommandHandler.Create(() => new Survey().Run())
 };
 
-var results = new Command("results", "Show results on the command line")
-{
-    Handler = CommandHandler.Create(() => new Results().Run())
-};
+// var results = new Command("results", "Show results on the command line")
+// {
+//     Handler = CommandHandler.Create(() => new Results().Run())
+// };
 
 var report = new Command("report", "Generate report of the results")
 {
@@ -67,7 +67,7 @@ var report = new Command("report", "Generate report of the results")
 //rootCommand.AddCommand(read);
 rootCommand.AddCommand(ask);
 rootCommand.AddCommand(survey);
-rootCommand.AddCommand(results);
+// rootCommand.AddCommand(results);
 rootCommand.AddCommand(report);
 
 

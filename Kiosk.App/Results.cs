@@ -64,68 +64,7 @@ class Results {
     private string file_path = "result.json";
     private List<ResultsModel> results;
 
-    public Results() {
-        // Dummy initialization 
-        List<Question> questions = new List<Question>();
-        List<string> options = new List<string>(new string[] { "1", "2", "3" });
-        Question question1 = new Question();
-        question1.setTitle("question1");
-
-        foreach (string ans in options) {
-            question1.addAnswers(ans);
-        }
-
-        question1.answer = "1";
-        
-        Question question2 = new Question();
-        question2.setTitle("question1");
-        
-        foreach (string ans in options) {
-            question2.addAnswers(ans);
-        }
-
-        question2.answer = "1";
-        
-        Question question3 = new Question();
-        question3.setTitle("question1");
-
-        foreach (string ans in options) {
-            question3.addAnswers(ans);
-        }
-
-        question3.answer = "2";
-
-        Question question4 = new Question();
-        question4.setTitle("question1");
-
-        foreach (string ans in options) {
-            question4.addAnswers(ans);
-        }
-
-        question4.answer = "2";
-
-        Question question5 = new Question();
-        question5.setTitle("question1");
-
-        foreach (string ans in options) {
-            question5.addAnswers(ans);
-        }
-        question5.answer = "2";
-
-        Question question6 = new Question();
-        question6.setTitle("question1");
-        foreach (string ans in options) {
-            question6.addAnswers(ans);
-        }
-        question6.answer = "3";
-
-        questions.Add(question1);
-        questions.Add(question2);
-        questions.Add(question3);
-        questions.Add(question4);
-        questions.Add(question5);
-        questions.Add(question6);
-
+    public Results(List<Question> questions) {
         // this.file_path = file_path;
         results = tranformQuestionsToResults(questions);
     }
