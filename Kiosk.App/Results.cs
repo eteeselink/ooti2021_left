@@ -41,27 +41,27 @@ class Results {
         List<Question> questions = new List<Question>();
         List<string> options = new List<string>(new string[] { "1", "2", "3" });
         Question question1 = new Question();
-        question1.title = "question1";
+        question1.setTitle("question1");
         question1.answers = options;
         question1.answer = "1";
         
         Question question2 = new Question();
-        question2.title = "question1";
+        question2.setTitle("question1");
         question2.answers = options;
         question2.answer = "1";
         
         Question question3 = new Question();
-        question3.title = "question1";
+        question3.setTitle("question1");
         question3.answers = options;
         question3.answer = "2";
 
         Question question4 = new Question();
-        question4.title = "question1";
+        question4.setTitle("question1");
         question4.answers = options;
         question4.answer = "2";
 
         Question question5 = new Question();
-        question5.title = "question1";
+        question5.setTitle("question1");
         question5.answers = options;
         question5.answer = "2";
 

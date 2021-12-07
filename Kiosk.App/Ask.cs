@@ -9,10 +9,10 @@ class Ask {
 
     public void Run(){
         Question q1 = new Question();
-        q1.title = "what is your name?";
+        q1.setTitle("what is your name?");
 
         Question q2 = new Question();
-        q2.title = "what do you want to choose: Pissa, Lahmacun, Bitterball";
+        q2.setTitle("what do you want to choose: Pissa, Lahmacun, Bitterball");
         
 
         List<Question> lists = new List<Question>();
@@ -28,7 +28,7 @@ class Ask {
 
         foreach (var item in lists)
         {
-            Console.WriteLine(item.title);
+            Console.WriteLine(item.getTitle());
             item.answer = Console.ReadLine()!;
             Console.WriteLine("The one I want is: " + item.answer);
 
