@@ -6,6 +6,8 @@ using System.Linq;
 namespace Kiosk.App;
 
 class Read {
+
+    List<Question> allQuestions;
     public void Run() {
         Console.WriteLine("Questions file contains:");
         Console.WriteLine(ReadQuestionsFile());
@@ -18,5 +20,9 @@ class Read {
         var rootDir = AppContext.BaseDirectory + "/../../../../";
 
         return File.ReadAllText(rootDir + "questions.txt");
+    }
+
+    public List<Question> getQuestions(){
+        return allQuestions;
     }
 }
