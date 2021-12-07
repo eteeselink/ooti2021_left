@@ -1,5 +1,5 @@
 public class Question{
-    private string title;
+    public string title;
     public List<string> answers;
     public string answer;
 
