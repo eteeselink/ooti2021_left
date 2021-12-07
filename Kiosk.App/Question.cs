@@ -1,6 +1,7 @@
 public class Question{
     private string title;
     public List<string> answers;
+    
 
     public void setTitle(string title){
         this.title = title;
@@ -18,6 +19,5 @@ public class Question{
     public string getTitle(){
         return title;
     }
-    public string answer;
 
 }

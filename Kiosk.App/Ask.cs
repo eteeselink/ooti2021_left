@@ -32,7 +32,7 @@ class Ask {
             foreach (var item in lists)
                     {
                         if(item != null){
-                        Console.WriteLine(item.getTitle);
+                        Console.WriteLine(item.getTitle());
                         foreach(var possibleAnswer in item.answers)
                         {
                             Console.WriteLine(possibleAnswer);
