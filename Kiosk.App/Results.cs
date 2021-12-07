@@ -22,6 +22,10 @@ class OptionResultModel {
     public int getValue() {
         return value;
     }
+
+    public string toString() {
+        return "Option " + name + ":" + value + "\n";
+    }
 }
 
 class ResultsModel {
@@ -44,6 +48,15 @@ class ResultsModel {
     public void addOptionResult(string name, int value) {
         OptionResultModel optionResult = new OptionResultModel(name, value);
         this.options.Add(optionResult);
+    }
+
+    public string toString() {
+        string result = "";
+        result = result + title + "\n";
+        foreach (OptionResultModel option in options) {
+                result = result + option.toString();
+        }
+        return result;
     }
 }
 
@@ -155,22 +168,21 @@ class Results {
         display();
     }
 
+    private string toString() {
+        string res = "";
+        foreach (ResultsModel result in results) {
+            res = res + result.toString();
+        }
+        return res;
+    }
+
     public void write() {
         Console.WriteLine("Save results to file");
-        string json = JsonConvert.SerializeObject(results);
-        File.WriteAllText(this.file_path, json);
+        File.WriteAllText(this.file_path, toString());
     }
 
     public void display() {
-        Console.WriteLine("Display results to console");
-        Console.WriteLine(results.Count);
-        foreach (ResultsModel result in results) {
-            Console.WriteLine(result.getTitle());
-            foreach (OptionResultModel option in result.GetOptions()) {
-                Console.WriteLine("Option " + option.getName() + ":" + option.getValue());
-            }
-        }
-        string json = JsonConvert.SerializeObject(results);
-        Console.Write(json);
+        Console.WriteLine("Display results to console");    
+        Console.Write(toString());
     }
 }
