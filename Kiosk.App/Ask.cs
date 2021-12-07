@@ -33,7 +33,7 @@ class Ask {
             Console.WriteLine("The one I want is: " + item.answer);
 
         }
-       return null;
+       return lists;
         
     }
 }
