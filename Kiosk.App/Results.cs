@@ -103,7 +103,7 @@ class Results {
     private List<ResultsModel> tranformQuestionsToResults(List<Question> questions) {
         Dictionary<string, Dictionary<string, int>> resultsDict = new Dictionary<string, Dictionary<string, int>>();
         foreach (Question question in questions) {
-            string key = question.title;
+            string key = question.getTitle();
             if (!resultsDict.ContainsKey(key)) {
                 resultsDict.Add(key, new Dictionary<string, int>());
                 resultsDict[key].Add(question.answer, 1);
@@ -134,8 +134,8 @@ class Results {
 
     public void Run() {
         Console.WriteLine("Results");
-        //write();
-        //display();
+        write();
+        display();
     }
 
     public void write() {
