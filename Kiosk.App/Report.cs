@@ -9,11 +9,9 @@ using System.Text;
 namespace Kiosk.App;
 
 public class Report {
-
-    // work in progress
     private string file_path = "result.json";
 
-    private string html_file = "./report.html";
+    private string html_file = "report.html";
     private string output = "";
     public Report(string file_path) {
         this.file_path = file_path;
@@ -27,12 +25,14 @@ public class Report {
         // create file
         using (FileStream file = File.Create(html_file))
         {
-            byte[] info = new UTF8Encoding(true).GetBytes("<");
+            byte[] info = new UTF8Encoding(true).GetBytes("<html><h1>Results</h1><br\><h2> " + output + "</h2></html>");
                 // Add some information to the file.
             file.Write(info, 0, info.Length);
         }
     }
     public void Run() {
+        parseFile();
+        generateHTML();
         Console.WriteLine("Report");
     }
 }

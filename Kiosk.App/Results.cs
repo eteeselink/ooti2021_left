@@ -134,8 +134,8 @@ class Results {
 
     public void Run() {
         Console.WriteLine("Results");
-        write();
-        display();
+        //write();
+        //display();
     }
 
     public void write() {
