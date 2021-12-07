@@ -13,9 +13,13 @@ public class Report {
 
     private string html_file = "report.html";
     private string output = "";
-    public Report(string file_path) {
-        this.file_path = file_path;
-    }
+
+    // This is the constructor that has been commented out
+    // Use this
+    //public Report(string file_path) {
+    //    this.file_path = file_path;
+    //}
+
     public void parseFile() {
         output = File.ReadAllText(file_path);
     }
@@ -25,14 +29,18 @@ public class Report {
         // create file
         using (FileStream file = File.Create(html_file))
         {
-            byte[] info = new UTF8Encoding(true).GetBytes("<html><h1>Results</h1><br\><h2> " + output + "</h2></html>");
+
+            byte[] info = new UTF8Encoding(true).GetBytes("<html><h1>Results</h1><br><h2> " + output + "</h2></html>");
+
                 // Add some information to the file.
             file.Write(info, 0, info.Length);
         }
     }
     public void Run() {
+        Console.WriteLine("Printing file ...");
         parseFile();
+        Console.WriteLine("Generating report ...");
         generateHTML();
-        Console.WriteLine("Report");
+        Console.WriteLine("Report generated ...");
     }
 }

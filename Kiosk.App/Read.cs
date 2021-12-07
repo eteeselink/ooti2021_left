@@ -8,11 +8,14 @@ namespace Kiosk.App;
 class Read {
 
     private List<Question> allQuestions;
-    public void Run() {
+    private string path;
+
+    public Read(string path){
+        this.path = path;
         allQuestions = new List<Question>();
         Console.WriteLine("Questions file contains:");
         ReadQuestionsFile();
-        printAllQuestions();
+
     }
 
     public List<Question> getAlllQuestions(){
@@ -21,11 +24,9 @@ class Read {
 
     // this is just an example of how to read a file,
     // modify/delete as you see fit.
-    public void ReadQuestionsFile() {
+    private void ReadQuestionsFile() {
         // we run in <root>/Kiosk.App/bin/Debug/net6.0, so gotta go up 4 levels
-        var rootDir = AppContext.BaseDirectory + "/../../../../";
-
-        string[] lines = File.ReadAllLines(rootDir + "questions.txt");
+        string[] lines = File.ReadAllLines(this.path);
 
         int index = 0;
 
@@ -49,23 +50,5 @@ class Read {
                 allQuestions.Add(newQuestion);
             }
         }
-    }
-
-    public void printAllQuestions(){
-        int questionNumber = 0;
-        foreach (Question question in allQuestions){
-            questionNumber++;
-            Console.WriteLine(questionNumber + "- " + question.getTitle());
-            int answserCount = 0;
-            foreach (string answer in question.getAllAnswers()){
-                Console.WriteLine(answserCount + ") "+ answer);
-                answserCount++;
-            }
-
-        }
-    }
-
-    public List<Question> getQuestions(){
-        return allQuestions;
     }
 }
