@@ -9,15 +9,13 @@ using System.Text;
 namespace Kiosk.App;
 
 public class Report {
-
-    // work in progress
     private string file_path = "result.json";
 
     private string html_file = "report.html";
     private string output = "";
-    //public Report(string file_path) {
-    //    this.file_path = file_path;
-    //}
+    public Report(string file_path) {
+        this.file_path = file_path;
+    }
     public void parseFile() {
         output = File.ReadAllText(file_path);
     }
@@ -33,6 +31,8 @@ public class Report {
         }
     }
     public void Run() {
+        parseFile();
+        generateHTML();
         Console.WriteLine("Report");
     }
 }
